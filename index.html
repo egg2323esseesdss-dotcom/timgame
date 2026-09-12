@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tim Game</title>
+
+<style>
+body{
+    margin:0;
+    background:#101820;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+h1{margin-top:20px;}
+#coin{
+    width:180px;
+    height:180px;
+    background:gold;
+    border-radius:50%;
+    margin:40px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
+    cursor:pointer;
+}
+#score{
+    font-size:28px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎮 Tim Game</h1>
+<p>Нажимай на монету!</p>
+
+<div id="coin">🪙</div>
+
+<div id="score">Монеты: 0</div>
+
+<script>
+let coins = Number(localStorage.getItem("coins")) || 0;
+
+const score = document.getElementById("score");
+score.textContent = "Монеты: " + coins;
+
+document.getElementById("coin").onclick = () => {
+    coins++;
+    localStorage.setItem("coins", coins);
+    score.textContent = "Монеты: " + coins;
+};
+</script>
+
+</body>
+</html>	
